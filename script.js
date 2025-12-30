@@ -5,14 +5,26 @@ const supabaseKey = 'sb_publishable_Veqod3BidMxYUXB2p0PcoQ_9yUoh-Tf'
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 window.submitAnswer = async () => {
-  const text = document.getElementById('answer').value
+  try {
+    const text = document.getElementById('answer').value.trim();
+    if (!text) {
+      alert('何か書いてから送信してください');
+      return;
+    }
 
-  const { error } = await supabase
-    .from('submissions')
-    .insert({
-      challenge_id: 'C-1',
-      answer_text: text
-    })
+    const { data, error } = await supabase
+      .from('submissions')
+      .insert({ challenge_id: 'C-1', answer_text: text });
 
-  alert(error ? error.message : '送信完了')
-}
+    console.log({ data, error });
+
+    if (error) {
+      alert('ERROR: ' + error.message);
+    } else {
+      alert('送信完了');
+    }
+  } catch (e) {
+    console.error(e);
+    alert('JS例外: ' + (e?.message ?? e));
+  }
+};
