@@ -22,7 +22,8 @@ const CHALLENGES = {
 
 let currentId = 'C-1'
 
-window.setChallenge = (id) => {
+window.setChallenge = (id) => { ... }
+window.submitAnswer = async () => { ... }
   currentId = id
   document.getElementById('title').innerText = CHALLENGES[id].title
   document.getElementById('prompt').innerText = CHALLENGES[id].prompt
