@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Thinking Test</title>
-</head>
-<body>
-  <h1>コンサル型課題</h1>
-  <p>地方のスーパーの売上が落ちています。原因を3階層で整理してください。</p>
+<h1>仕事の思考テスト</h1>
 
-  <textarea id="answer" rows="10" cols="50"></textarea><br><br>
-  <button onclick="submitAnswer()">送信</button>
+<div>
+  <button onclick="setChallenge('C-1')">コンサル</button>
+  <button onclick="setChallenge('P-1')">事業会社</button>
+  <button onclick="setChallenge('S-1')">スタートアップ</button>
+</div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+<h2 id="title"></h2>
+<p id="prompt"></p>
+
+<textarea id="answer" rows="10" cols="60"></textarea><br><br>
+<button id="submitBtn" onclick="submitAnswer()">送信</button>
+
 <script type="module" src="script.js"></script>
