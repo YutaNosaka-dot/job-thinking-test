@@ -53,4 +53,5 @@ window.submitAnswer = async () => {
 
 // 初期表示
 window.setChallenge(currentId)
+<script type="module" src="script.js"></script>
 
